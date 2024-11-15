@@ -69,6 +69,11 @@ class Test_Search(BaseClass):
             expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "a[aria-label='Watch Trailer']"))).click()
         time.sleep(150)
 
+        if menu.is_displayed() is True:
+            action.move_to_element(menu).perform()
+        else:
+            print("screen is not moved back to homepage")
+
         # wait.until(expected_conditions.presence_of_element_located((By.XPATH, "//span[text()='Sign Out']")))
         # item1 = self.driver.find_element(By.XPATH, "//span[text()='Sign out']")
         item1 = Hmepage.signout_item()
