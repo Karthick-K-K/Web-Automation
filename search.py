@@ -53,6 +53,17 @@ time.sleep(2)
 driver.find_element(By.XPATH, "//a[text()='Vettaiyan']").click()
 time.sleep(2)
 wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "a[aria-label='Watch Trailer']"))).click()
-time.sleep(150)
+time.sleep(10)
+
+if menu.is_displayed() is True:
+    action.move_to_element(menu).perform()
+    item1 = driver.find_element(By.XPATH, "//span[text()='Sign out']")
+    action.move_to_element(item1).click().perform()
+    print("sign out done successfully")
+else:
+    print("screen is not moved back to homepage")
+
+time.sleep(2)
+
 
 
